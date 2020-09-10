@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['base.py', 'panel.py', 'predictLoading.py', 'top.py', 'truck.py', 'item.py', 'userinterface.py']
+recent_files = ['base.py', 'panel.py', 'truck.py', 'userinterface.py', 'interface_controller.py', 'top.py', 'item.py', 'predictLoading.py', 'loadpy.py', '..\\..\\users\\rob\\anaconda3\\lib\\site-packages\\pygame\\pkgdata.py', '..\\..\\users\\rob\\anaconda3\\lib\\site-packages\\pkg_resources\\__init__.py', '..\\..\\users\\rob\\anaconda3\\lib\\inspect.py']
 

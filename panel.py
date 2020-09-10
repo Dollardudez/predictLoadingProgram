@@ -3,8 +3,8 @@ from item import Item
 #panel object
 class Panel(Item):
     
-    """creates a Panel object. It inherits length, width, and weight
-    from its parent class"""
+    """represents a Panel object. It inherits length, width, and weight
+    from the Item class"""
     
     def __init__(self, l, w, we, pal, ty, val):
         super().__init__(self, l, w, we)

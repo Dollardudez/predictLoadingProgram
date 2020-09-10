@@ -1,8 +1,12 @@
 from item import Item
 #base object
 class Base(Item):
-    """the base object"""
-    def __init__(self, l, w, we, pal, ty, val):
+    """
+    represents a Base object. It inherits length, width, and weight
+    from the Item class
+    """
+    
+    def __init__(self, ty, l, w, we, pal, val):
         super().__init__(l, w, we)
         #is it on a pallet?
         self.pallet = pal
