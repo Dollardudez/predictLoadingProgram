@@ -3,7 +3,7 @@ from truck import Truck
 from base import Base
 from panel import Panel
 
-def Predicter:
+# def Predicter:
     
 """
 font1 = pg.font.Font('freesansbold.ttf', 25) 

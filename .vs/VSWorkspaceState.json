@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\.spyproject",
-    "\\.spyproject\\config"
+    ""
   ],
-  "SelectedNode": "\\load.py",
+  "SelectedNode": "\\interface_controller.py",
   "PreviewInSolutionExplorer": false
 }

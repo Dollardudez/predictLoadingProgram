@@ -45,7 +45,15 @@ class Base(Item):
     
     def orient_vertical(self):
         """
-        Method that
+        Method that reorients the base to be flipped vertically
+        """
+        temp_length = self.length
+        self.length = self.width
+        self.width = temp_length
+
+    def undo_orient_vertical(self):
+        """
+        Method that undoes the the orient_vertically method
         """
         temp_length = self.length
         self.length = self.width
