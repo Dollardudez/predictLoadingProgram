@@ -1,6 +1,6 @@
 import pygame as pg
 from base import Base
-from loadpy import Load
+from load import Load
 #controller for user interface
 
 class Menu():
@@ -44,7 +44,31 @@ class Menu():
         Menu.button(self, screen, "Simulate a Load", 1000, 300)
         Menu.button(self, screen, "Suprise Me", 1000, 400)
         Menu.button(self, screen, "N/A", 1000, 500)
+
+class DrawItems():
+    """
+    Class that defines methods for drawing items to the screen.
+    """
+
+    def DrawBase(screen, base_x, base_y, base_len, base_width):
+        """
+        Method that draws a base to the screen from given the parameters.
+        """
+        pygame.draw.rect(screen, (255,0,0),(base_x, base_y, base_len*2, base_width*2), 4)
+        
+
+    def DrawPanel(screen, panel_x, panel_y, panel_len, panel_width):
+        """
+        Method that draws a panel to the screen from given the parameters.
+        """
+        pygame.draw.rect(screen, (255,0,0),(panel_x, panel_y, panel_len*2, panel_width*2), 4)
+
+    def DrawTop(screen, top_x, top_y, top_len, top_width):
+        """
+        Method that draws a top to the screen from given the parameters.
+        """
+        pygame.draw.rect(screen, (255,0,0),(top_x, top_y, top_len*2, top_width*2), 4)
         
         
-        
+    
         
