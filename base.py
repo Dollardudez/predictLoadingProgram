@@ -1,7 +1,7 @@
-from item import Item
+from item import IItem
 
 #base object
-class Base(Item):
+class Base(IItem):
     """
     represents a Base object. It inherits length, width, and weight
     from the Item class
@@ -12,19 +12,26 @@ class Base(Item):
             value: the height (in relation to the height of 1 panel) of the base.
     """
     
-    def __init__(self, ty, l, w, we, pal, val):
+    def __init__(self,b_t_p, ty, l, w, we, pal, val):
         """
         Constructor for the Base object.
         """
-        super().__init__(l, w, we)
+        super().__init__(b_t_p, l, w, we, val)
         #is it on a pallet?
         self.pallet = pal
         #midheight, fullheight, lopro, extreme lopro
         self.type = ty
         #height of base in relation to 1 panel
         self.value = val
+        self.b_t_p = b_t_p
         
-        
+    def will_2piggy(self, base2):
+        if(self.width + base2.width < 100):
+            if(self.length < 70 and base2.length < 70 and self.type == base2.type):
+                return True
+        else: return False
+
+
     def will_3piggy(self, base2, base3):
         """
         Method that determines if a base could fit "3 piggy" with 2 other bases
@@ -53,7 +60,7 @@ class Base(Item):
 
     def undo_orient_vertical(self):
         """
-        Method that undoes the the orient_vertically method
+        Method that undoes the the orient_vertical method
         """
         temp_length = self.length
         self.length = self.width

@@ -2,6 +2,7 @@ import re
 from base import Base
 from panel import Panel
 from top import Top
+from linked_list import LinkedList
 
 class Load():
     """ 
@@ -21,17 +22,17 @@ class Load():
         
     def read_base(self, line):
         split_line = re.split(', ',line)
-        base = Base(split_line[1], split_line[2], split_line[3], split_line[4], split_line[5], split_line[6])
+        base = Base(split_line[0], split_line[1], split_line[2], split_line[3], split_line[4], split_line[5], split_line[6])
         return base
     
     def read_top(self, line):
         split_line = re.split(', ',line)
-        top = Top(split_line[1], split_line[2], split_line[3], split_line[4], split_line[5], split_line[6])
+        top = Top(split_line[0], split_line[1], split_line[2], split_line[3], split_line[4], split_line[5])
         return top
     
     def read_panel(self, line):
         split_line = re.split(', ',line)
-        panel = Panel(split_line[1], split_line[2], split_line[3], split_line[4], split_line[5], split_line[6])
+        panel = Panel(split_line[0], split_line[1], split_line[2], split_line[3], split_line[4], split_line[5], split_line[6])
         return panel
     
     def read_in_load(self, filename, number_of_orders):
@@ -47,15 +48,15 @@ class Load():
         count = 0
         f = open(filename, "r")
         try:
-            self.entire_load.append([])
+            self.entire_load.append(LinkedList())
             for line in f.readlines()[1:]:
                 if("##" in line):
                     count += 1
-                    self.entire_load.append([])
+                    self.entire_load.append(LinkedList())
                     continue
-                if("base" in line): self.entire_load[count].append(self.read_base(line))
-                if("top" in line): self.entire_load[number_of_order].append(read_top())
-                if("panel" in line): self.entire_load[number_of_order].append(read_panel())
+                if("base" in line): self.entire_load[count].insert_node(self.read_base(line))
+                if("top" in line): self.entire_load[count].insert_node(self.read_top(line))
+                if("panel" in line): self.entire_load[count].insert_node(self.read_panel(line))
         finally:
             f.close()
             

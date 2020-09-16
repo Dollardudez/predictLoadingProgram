@@ -3,6 +3,7 @@ from truck import Truck
 from base import Base
 from button import Button
 from time import sleep
+from predictLoading import Predicter
 import pygame
 import sys
 from interface_controller import *
@@ -20,7 +21,8 @@ def run_program():
     pygame.init()
     screen = pygame.display.set_mode((CONST_WINDOW_WIDTH, CONST_WINDOW_LENGTH))
     
-    b = Base('Lopro', 60, 30, 100, False, 5)
+    b = Base('base', 'Lopro', 60, 30, 100, False, 5)
+    load = Load()
     
     truck = Truck(240,100,3)
     menu = Menu()
@@ -40,16 +42,17 @@ def run_program():
                 sys.exit(1)
         screen.fill((230,230,230))
         truck.draw_truck(screen)
-        truck.draw_all_truck_arrays(screen)
+        truck.draw_all_truck_lists(screen)
         pygame.draw.rect(screen, (255,0,0),(b.x, b.y, b.length*2, b.width*2), 4)
         # pygame.draw.rect(screen, (0,0,255),(t.x, t.y, t.width*2, t.length*2), 4)
         menu.side_menu(screen)
         if(ux_load.is_mouse_clicked_on_button(screen)):
             count = 1
-            load = Load()
             num = load.count_number_of_orders("D://random_docs/testLoad_1.txt")
             load.read_in_load("D://random_docs/testLoad_1.txt", num)
             print(load.entire_load)
+            Predicter.predict_loading(load.entire_load, truck, num)
+            
         if(count >= 1 and count <=  15):
             ux_load.text = "loading...."
 

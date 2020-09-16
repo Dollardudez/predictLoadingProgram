@@ -1,5 +1,5 @@
 
-class Item:
+class IItem:
     """
     the Item class is an interface class for panels, bases, and tops.
     It provides length, width, and height to all of those objects and classifies them all as "Items"
@@ -14,12 +14,14 @@ class Item:
 
     """
     
-    def __init__(self, l, w, we):
+    def __init__(self,b_t_p, l, w, we, val: int):
         self.length = l
         self.width = w
         self.weight = we
+        self.val = val
         self.x = 5
         self.y = 5
         self.paired = False
+        self.b_t_p = b_t_p
         
 

@@ -1,4 +1,6 @@
 import pygame as pg
+from item import IItem
+from truck_list import TruckList
 
 #truck object
 class Truck:
@@ -23,35 +25,35 @@ class Truck:
         self.width = w
         self.max_capacity = mc
         
-        self.underLeft = []
-        self.underLeftC = []
-        self.underRightC = []
-        self.underRight = []
+        self.underLeft = TruckList(50)
+        self.underLeftC = TruckList(50)
+        self.underRightC = TruckList(50)
+        self.underRight = TruckList(50)
         
-        self.downLeft = []
-        self.downLeftC = []
-        self.downRightC = []
-        self.downRight = []
+        self.downLeft = TruckList(100)
+        self.downLeftC = TruckList(100)
+        self.downRightC = TruckList(100)
+        self.downRight = TruckList(100)
         
-        self.levelLeft = []
-        self.levelLeftC = []
-        self.levelRightC = []
-        self.levelRight = []
+        self.levelLeft = TruckList(30)
+        self.levelLeftC = TruckList(30)
+        self.levelRightC = TruckList(30)
+        self.levelRight = TruckList(30)
         
-        self.sd_Left = []
-        self.sd_LeftC = []
-        self.sd_RightC = []
-        self.sd_Right = []
+        self.sd_Left = TruckList(25)
+        self.sd_LeftC = TruckList(25)
+        self.sd_RightC = TruckList(25)
+        self.sd_Right = TruckList(25)
         
         self.x = 325
         self.y = 200
     
     def draw_truck(self, screen):
         """
-        Method that draws the representation of the truck onto the screen
+        Method that draws the representation of the truck onto the screen.
 
         Parameters:
-            screen: the pygame display
+            screen: the pygame display.
         """
         pg.draw.rect(screen, (183,210,233), (self.x, self.y, self.width*2, self.length*2))
         #pg.draw.rect(screen, (0,0,0), (self.x, self.y, self.width*2, self.length*2), 5)
@@ -65,35 +67,127 @@ class Truck:
         text2 = font2.render('down', True, (120,130,135))
         screen.blit(text2, ((self.x-50, self.y+250)))
         
-    def draw_truck_array(self, screen, x, y, width, length):
+    def draw_truck_list(self, screen, x, y, width, length):
         """
         Draws a 25 inch wide slice of the truck onto the screen.
         
-        !Remember! 25 in wide is 1/4 the width of the truck irl
+        !Remember! 25 in wide is 1/4 the width of the truck irl.
         """
         array = pg.draw.rect(screen, (255,255,255),(x,y,width*2,length*2), 2)
         array.center = (x, y)
         
-    def draw_all_truck_arrays(self, screen):
+    def draw_all_truck_lists(self, screen):
         """
            Draws all of the slices of the truck onto the screen.
-           Each slice representsa certain and very important area of the truck
+           Each slice representsa certain and very important area of the truck.
         """
 
         #under
-        self.draw_truck_array(screen, self.x,     self.y, 25, 100)
-        self.draw_truck_array(screen, self.x+50,  self.y, 25, 100)
-        self.draw_truck_array(screen, self.x+100, self.y, 25, 100)
-        self.draw_truck_array(screen, self.x+150, self.y, 25, 100)
+        self.draw_truck_list(screen, self.x,     self.y, 25, 100)
+        self.draw_truck_list(screen, self.x+50,  self.y, 25, 100)
+        self.draw_truck_list(screen, self.x+100, self.y, 25, 100)
+        self.draw_truck_list(screen, self.x+150, self.y, 25, 100)
         
         #down
-        self.draw_truck_array(screen, self.x,     self.y+200,  25, 100)
-        self.draw_truck_array(screen, self.x+50,  self.y+200,  25, 100)
-        self.draw_truck_array(screen, self.x+100, self.y+200,  25, 100)
-        self.draw_truck_array(screen, self.x+150, self.y+200,  25, 100)
+        self.draw_truck_list(screen, self.x,     self.y+200,  25, 100)
+        self.draw_truck_list(screen, self.x+50,  self.y+200,  25, 100)
+        self.draw_truck_list(screen, self.x+100, self.y+200,  25, 100)
+        self.draw_truck_list(screen, self.x+150, self.y+200,  25, 100)
         
         #sd
-        self.draw_truck_array(screen, self.x,     self.y+400,  25, 40)
-        self.draw_truck_array(screen, self.x+50,  self.y+400,  25, 40)
-        self.draw_truck_array(screen, self.x+100, self.y+400,  25, 40)
-        self.draw_truck_array(screen, self.x+150, self.y+400,  25, 40)
+        self.draw_truck_list(screen, self.x,     self.y+400,  25, 40)
+        self.draw_truck_list(screen, self.x+50,  self.y+400,  25, 40)
+        self.draw_truck_list(screen, self.x+100, self.y+400,  25, 40)
+        self.draw_truck_list(screen, self.x+150, self.y+400,  25, 40)
+
+
+
+    def add_4_wide_under(self, item):
+        """
+        """
+        self.underLeft.add_item(item)
+        self.underLeftC.add_item(item)
+        self.underRightC.add_item(item)
+        self.underRight.add_item(item)
+
+    def add_4_wide_down(self, item):
+        """
+        """
+        self.downLeft.add_item(item)
+        self.downLeftC.add_item(item)
+        self.downRightC.add_item(item)
+        self.downRight.add_item(item)
+
+
+
+    def add_3_wide_under_left(self, item):
+        """
+        """
+        self.underLeft.add_item(item)
+        self.underLeftC.add_item(item)
+        self.underRightC.add_item(item)
+
+    def add_3_wide_under_right(self, item):
+        """
+        """
+        self.underRight.add_item(item)
+        self.underRightC.add_item(item)
+        self.underLeftC.add_item(item)
+
+    def add_3_wide_down_left(self, item):
+        """
+        """
+        self.downLeft.add_item(item)
+        self.downLeftC.add_item(item)
+        self.downRightC.add_item(item)
+
+
+    def add_3_wide_down_right(self, item):
+        """
+        """
+        self.downRight.add_item(item)
+        self.downRightC.add_item(item)
+        self.downLeftC.add_item(item)
+
+
+
+
+    def add_2_wide_under_left(self, item):
+        """
+        """
+        self.underLeft.add_item(item)
+        self.underLeftC.add_item(item)
+
+    def add_2_wide_under_center(self, item):
+        """
+        """
+        self.underLeftC.add_item(item)
+        self.underRightC.add_item(item)
+
+    def add_2_wide_under_right(self, item):
+        """
+        """
+        self.underRightC.add_item(item)
+        self.underLeftC.add_item(item)
+
+    def add_2_wide_down_left(self, item):
+        """
+        """
+        self.downLeft.add_item(item)
+        self.downLeftC.add_item(item)
+
+    def add_2_wide_down_center(self, item):
+        """
+        """
+        self.downLeftC.add_item(item)
+        self.downRightC.add_item(item)
+
+    def add_2_wide_down_right(self, item):
+        """
+        """
+        self.downRightC.add_item(item)
+        self.downLeftC.add_item(item)
+
+
+
+
