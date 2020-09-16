@@ -21,16 +21,43 @@ class Load():
         self.entire_load = []
         
     def read_base(self, line):
+        """
+        Method reads in a base creates a Base object from the information provided.
+
+            Parameters:
+                line: the line in the text document that contains information to create an instance of a base.
+
+            Returns:
+                base: an instance of the Base() class.
+        """
         split_line = re.split(', ',line)
         base = Base(split_line[0], split_line[1], split_line[2], split_line[3], split_line[4], split_line[5], split_line[6])
         return base
     
     def read_top(self, line):
+        """
+        Method reads in a top creates a Top object from the information provided.
+
+            Parameters:
+                line: the line in the text document that contains information to create an instance of a top.
+
+            Returns:
+                top: an instance of the Top() class.
+        """
         split_line = re.split(', ',line)
         top = Top(split_line[0], split_line[1], split_line[2], split_line[3], split_line[4], split_line[5])
         return top
     
     def read_panel(self, line):
+        """
+        Method reads in a panel creates a Panel object from the information provided.
+
+            Parameters:
+                line: the line in the text document that contains information to create an instance of a panel.
+
+            Returns:
+                panel: an instance of the Panel() class.
+        """
         split_line = re.split(', ',line)
         panel = Panel(split_line[0], split_line[1], split_line[2], split_line[3], split_line[4], split_line[5], split_line[6])
         return panel

@@ -3,11 +3,13 @@ from base import Base
 from load import Load
 
 class Menu():
-    def __init__(self):
-        self.mouse_is_clicked = False
-        self.mouse_was_clicked = False     
-        
+    """
+    Represents the menu.
+    """ 
     def side_menu(self, screen):
+        """
+        Method that draws the "Menu" text to the screen.
+        """
         font = pg.font.Font('freesansbold.ttf', 30) 
         text = font.render('Menu', True, (120,130,135))
         textRect = text.get_rect()

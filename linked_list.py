@@ -1,9 +1,21 @@
 # code used from https://www.codefellows.org/blog/implementing-a-singly-linked-list-in-python/
 
 
-class Node(object):
+class Node():
+    """
+    Represents a node in a linked list.
 
+    Attributes:
+            data: the information to be held by the node.
+            next_node: a pointer that connects the current node to the node that is next in line.
+    """
     def __init__(self, data=None):
+        """
+        Constructor for the node class.
+
+        Parameters:
+            data: the information to be held by the node.
+        """
         self.data = data
         self.next_node = None
 
@@ -18,11 +30,20 @@ class Node(object):
 
 
 
-class LinkedList(object):
+class LinkedList():
     """
-    A class that represents a linked list
+    A class that represents a linked list.
+
+    Attributes:
+            head: the first node in the linked list, default is null.
     """
     def __init__(self, head=None):
+        """
+        Constructor for the LinkedList class.
+
+        Parameters:
+            head: the first node in the linked list, default is null.
+        """
         self.head = head
 
     def insert_node(self, data):
@@ -31,6 +52,12 @@ class LinkedList(object):
         self.head = new_node
 
     def size(self):
+        """
+        Method that counts the size of a linked list.
+
+        Returns:
+            the number of nodes in the linked list as an int.
+        """
         current = self.head
         count = 0
         while current:
@@ -51,6 +78,9 @@ class LinkedList(object):
         return current
 
     def delete(self, data):
+        """
+        Method that deletes the node with that specific data from a linked list.
+        """
         current = self.head
         previous = None
         found = False
@@ -68,6 +98,12 @@ class LinkedList(object):
             previous.set_next(current.get_next())
 
     def copy(self):
+        """
+        Method that copies one linked list and stores the information in a new linked list.
+
+        Returns:
+            the new copy of the linked list
+        """
         result = LinkedList()
         buffer = self.head
         while buffer.next_node != None:
