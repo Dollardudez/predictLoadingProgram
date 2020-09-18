@@ -36,7 +36,7 @@ class Button():
 		textRect.center = (self.x+100, self.y+50)
 		screen.blit(text, textRect)
 		pg.draw.rect(screen, (20, 20, 20),(self.x,self.y,185,90),2)
-		if(self.is_mouse_on_button()):
+		if self.is_mouse_on_button():
 			pg.draw.rect(screen, (204, 204, 255),(self.x-7.5,self.y-5,200,100),8)
 
 

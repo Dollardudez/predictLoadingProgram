@@ -73,8 +73,7 @@ class Load():
             number_of_orders: the number of orders to be loaded.
         """
         count = 0
-        f = open(filename, "r")
-        try:
+        with open(filename, "r") as f:
             self.entire_load.append(LinkedList())
             for line in f.readlines()[1:]:
                 if("##" in line):
@@ -84,9 +83,7 @@ class Load():
                 if("base" in line): self.entire_load[count].insert_node(self.read_base(line))
                 if("top" in line): self.entire_load[count].insert_node(self.read_top(line))
                 if("panel" in line): self.entire_load[count].insert_node(self.read_panel(line))
-        finally:
-            f.close()
-            
+
     def count_number_of_orders(self, filename):
         """
         Method that counts the number of orders to be loaded.

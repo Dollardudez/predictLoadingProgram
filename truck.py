@@ -21,6 +21,8 @@ class Truck:
         y: the y position of the Truck on the display
     """
     def __init__(self, l = 240, w = 100, mc = 1200):
+
+
         self.length = l
         self.width = w
         self.max_capacity = mc
@@ -47,6 +49,8 @@ class Truck:
         
         self.x = 325
         self.y = 200
+
+
     
     def draw_truck(self, screen):
         """
@@ -55,6 +59,8 @@ class Truck:
         Parameters:
             screen: the pygame display.
         """
+        self.font = pg.font.SysFont(None, 24)
+
         pg.draw.rect(screen, (183,210,233), (self.x, self.y, self.width*2, self.length*2))
         #pg.draw.rect(screen, (0,0,0), (self.x, self.y, self.width*2, self.length*2), 5)
         font = pg.font.Font('freesansbold.ttf', 30) 
@@ -69,12 +75,17 @@ class Truck:
         
     def draw_truck_list(self, screen, x, y, width, length):
         """
-        Draws a 25 inch wide slice of the truck onto the screen.
+        Blits a 25 inch wide surface of the truck onto the screen.
         
         !Remember! 25 in wide is 1/4 the width of the truck irl.
         """
-        array = pg.draw.rect(screen, (255,255,255),(x,y,width*2,length*2), 2)
-        array.center = (x, y)
+        surf = pg.Surface((width*2 , length*2))
+        surf.fill((183,210,233))
+
+        text = self.font.render("yo",True,(34,139,3))
+        surf.blit(text,(20,50))
+        array = pg.draw.rect(surf, (255,255,255),(0,0,width*2,length*2), 2)
+        screen.blit(surf , (x , y))
         
     def draw_all_truck_lists(self, screen):
         """

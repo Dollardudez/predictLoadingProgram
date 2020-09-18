@@ -26,6 +26,12 @@ class TruckList():
         self.list.append(item)
         self.height += int(item.val)
 
+    def peek(self):
+        return self.list[0]
+
+    def dequeue(self):
+        return self.list.pop(0)
+
 
 
 

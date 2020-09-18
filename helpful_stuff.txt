@@ -65,3 +65,16 @@ if(t.x != truck.x):
     t.x = t.x + 1
 if(t.y != truck.y):
     t.y = t.y + 1
+
+
+EVENTUAL DISPLAY FOR CLICKING BUTTON
+if(count >= 1 and count <=  15):
+            ux_load.text = "loading...."
+
+            count = count +1
+
+        elif(count >= 16 and count <=  31):
+            count = count +1
+            ux_load.text = "done!"
+        else:
+            ux_load.text = "Load an Order"
