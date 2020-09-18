@@ -79,7 +79,7 @@ class Truck:
     def draw_all_truck_lists(self, screen):
         """
            Draws all of the slices of the truck onto the screen.
-           Each slice representsa certain and very important area of the truck.
+           Each slice represents a certain and very important area of the truck.
         """
 
         #under
@@ -104,6 +104,7 @@ class Truck:
 
     def add_4_wide_under(self, item):
         """
+        Method adds the item to all lists in the under area of the truck.
         """
         self.underLeft.add_item(item)
         self.underLeftC.add_item(item)
@@ -112,6 +113,7 @@ class Truck:
 
     def add_4_wide_down(self, item):
         """
+        Method adds the item to all lists in the down area of the truck.
         """
         self.downLeft.add_item(item)
         self.downLeftC.add_item(item)
@@ -122,6 +124,7 @@ class Truck:
 
     def add_3_wide_under_left(self, item):
         """
+        Method adds the item to the 3 leftmost lists in the under area of the truck. 
         """
         self.underLeft.add_item(item)
         self.underLeftC.add_item(item)
@@ -129,6 +132,7 @@ class Truck:
 
     def add_3_wide_under_right(self, item):
         """
+        Method adds the item to the 3 rightmost lists in the under area of the truck.
         """
         self.underRight.add_item(item)
         self.underRightC.add_item(item)
@@ -136,6 +140,7 @@ class Truck:
 
     def add_3_wide_down_left(self, item):
         """
+        Method adds the item to the 3 leftmost lists in the down area of the truck.
         """
         self.downLeft.add_item(item)
         self.downLeftC.add_item(item)
@@ -144,6 +149,7 @@ class Truck:
 
     def add_3_wide_down_right(self, item):
         """
+        Method adds the item to the 3 rightmost lists in the down area of the truck.
         """
         self.downRight.add_item(item)
         self.downRightC.add_item(item)

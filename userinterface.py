@@ -46,7 +46,7 @@ def run_program():
         pygame.draw.rect(screen, (255,0,0),(b.x, b.y, b.length*2, b.width*2), 4)
         # pygame.draw.rect(screen, (0,0,255),(t.x, t.y, t.width*2, t.length*2), 4)
         menu.side_menu(screen)
-        if(ux_load.is_mouse_clicked_on_button(screen)):
+        if(ux_load.is_mouse_clicked_on_button()):
             count = 1
             num = load.count_number_of_orders("D://random_docs/testLoad_1.txt")
             load.read_in_load("D://random_docs/testLoad_1.txt", num)
