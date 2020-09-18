@@ -1,0 +1,7 @@
+item, type, len, wid, wght, onPllt, height
+top, 60, 22, 15, no, 62
+base, full, 60, 33, 120, no, 4
+base, full, 52, 30, 100, no, 7
+##
+base, extreme, 62, 33, 120, yes, 7
+base, lopro, 60, 33, 120, no, 4
