@@ -207,4 +207,32 @@ class Truck:
 
 
 
+        #####################################################################################################################
+        ###### BOOLEAN METHODS ######
+
+    def is_3wide_under_left_even():
+        if self.underLeft.height == self.underLeftC.height == self.underRightC.height: return True
+        return False
+
+    def is_3wide_under_right_even():
+        if self.underRight.height == self.underRightC.height == self.underLeftC.height: return True
+        return False
+    def is_3wide_down_left_even():
+        if self.downLeft.height == self.downLeftC.height == self.downRightC.height: return True
+        return False
+
+    def is_3wide_down_right_even():
+        if self.downRight.height == self.downRightC.height == self.downLeftC.height: return True
+        return False
+
+    def is_4wide_under_even():
+        if self.underLeft.height == self.underLeftC.height == self.underRightC.height == self.underRight.height: return True
+        return False
+
+    def is_4wide_down_right_even():
+        if self.downRight.height == self.downRightC.height == self.downLeftC.height == self.downRight.height: return True
+        return False
+
+
+
 

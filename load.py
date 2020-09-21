@@ -74,15 +74,15 @@ class Load():
         """
         count = 0
         with open(filename, "r") as f:
-            self.entire_load.append(LinkedList())
+            self.entire_load.append([])
             for line in f.readlines()[1:]:
                 if("##" in line):
                     count += 1
-                    self.entire_load.append(LinkedList())
+                    self.entire_load.append([])
                     continue
-                if("base" in line): self.entire_load[count].insert_node(self.read_base(line))
-                if("top" in line): self.entire_load[count].insert_node(self.read_top(line))
-                if("panel" in line): self.entire_load[count].insert_node(self.read_panel(line))
+                if("base" in line): self.entire_load[count].append(self.read_base(line))
+                if("top" in line): self.entire_load[count].append(self.read_top(line))
+                if("panel" in line): self.entire_load[count].append(self.read_panel(line))
 
     def count_number_of_orders(self, filename):
         """

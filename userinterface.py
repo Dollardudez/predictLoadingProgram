@@ -22,6 +22,10 @@ eventHandler = EventHandler();
 count = 0
 num=0
 
+#if __name__=="__main__":
+  #  main();
+
+
 ux_load = Button("Load an Order", 1000, 200)
 def ux_loadClickEvent():
     global count

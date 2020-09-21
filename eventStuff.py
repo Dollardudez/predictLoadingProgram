@@ -6,7 +6,7 @@ class EventHandler:
 
     def __init__(self):
         """
-        Constructor for EventHandler
+        Constructor for EventHandler.
         """
         self.registeredClickLocation = []
         self.registeredClickEvents = []

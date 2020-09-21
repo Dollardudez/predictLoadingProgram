@@ -12,41 +12,48 @@ from linked_list import *
 class Predicter:
 
     def predict_loading(whole_order: [], truck: Truck, num_orders):
-        print(len(truck.underLeft.list))
-        copy2 = copy.deepcopy(whole_order)
-
-        for i in range(0, num_orders):
-            while(whole_order[i].head != None):
-                if(whole_order[i].head.data.b_t_p == "base"):
-                    copy1 = whole_order[i].copy()
-                    base = whole_order[i].head.data
-                    while(copy1.head != None):
-                        copy1.head = copy1.head.next_node
-                        if(copy1.head != None):
-                            if(isinstance(copy1.head.data, Base)):
-                                print("true instance")
-                                if(copy1.head.data.type == base.type ):
-                                    if(copy1.head.data == base): continue
-                                    print("match!")
-                                    truck.underLeft.add_item(base)
-                                    truck.underLeftC.add_item(base)
-                                    truck.underRightC.add_item(base)
-                                    truck.underLeft.add_item(copy1.head.data)
-                                    truck.underLeftC.add_item(copy1.head.data)
-                                    truck.underRightC.add_item(copy1.head.data)
-                elif(whole_order[i].head.data.b_t_p == "top"): print(whole_order[i].head.data.b_t_p)
-                whole_order[i].head = whole_order[i].head.next_node
-                print("\n")
-        count = sum(isinstance(x, IItem) for x in truck.underLeft.list)
-        print(count)
-        for item in truck.underLeft.list:
-            print(item)
-        for i in range(0, num_orders):
-            while(copy2[i].head != None):
-                print(copy2[i].head.data.b_t_p)
-                copy2[i].head = copy2[i].head.next_node
+        return
                 
 # any(email_service in user_email for email_service in email_services)
+
+    def item_flow(item):
+        if type(item) == Base:
+            return "Base"
+        elif type(item) == Top:
+            return "Top"
+        elif type(item) == Panel:
+            return "Top"
+        else:
+            return;
+
+    def base_flow(base):
+        if 62 > base.length >= 50: return 3
+        elif base.length < 50: return 2
+
+    def top_flow(top):
+        if top.length > 72: return 4;
+        elif top.length >= 50: return 3;
+        else: return 2
+
+    def panel_flow(panel):
+        if panel.width >= 71: return 4
+        elif panel.width >= 50: return 3
+        elif panel.width >= 30: return 2
+        else: return 1
+
+    def panel_3wide_flow(panel: Panel, list: [], truck: Truck):
+        if truck.is_3wide_down_left_even():
+            truck.add_3_wide_under_left(panel)
+        elif truck.is_3wide_under_right_even():
+            truck.add_3_wide_under_right
+        elif truck.is_3wide_down_left_even():
+            truck.add_3_wide_down_left
+        elif truck.is_3wide_down_right_even():
+            truck.add_3_wide_down_right
+
+    def panel_4wide_flow(panel: Panel, list: [], truck: Truck):
+        if truck.is_4wide_under_even(): truck.add_4_wide_under()
+        if truck.is_4wide_down_even(): truck.add_4_wide_down()
 
     
 """
